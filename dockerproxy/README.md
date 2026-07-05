@@ -2,13 +2,15 @@
 
 dockerproxy is a lightweight multi-host Docker registry cache/proxy.
 
-This add-on runs the published dockerproxy image:
+This add-on wraps the published dockerproxy image:
 
 ```text
 ghcr.io/dthompso99/dockerproxy:main
 ```
 
-It does not vendor the Rust source and does not rebuild the image. Home Assistant passes the add-on options to the container at `/data/options.json`, and dockerproxy stores its cache under `/data/cache`.
+It does not vendor the Rust source or rebuild dockerproxy. The add-on Dockerfile only uses the published image as its base and switches the container user to UID/GID `0:0` so Home Assistant's `/data` mount is readable and writable at runtime.
+
+Home Assistant passes the add-on options to the container at `/data/options.json`, and dockerproxy stores its cache under `/data/cache`.
 
 ## Access
 

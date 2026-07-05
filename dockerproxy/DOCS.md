@@ -16,6 +16,10 @@ The container image defaults to:
 
 Cache data is stored in `/data/cache`, which is persistent add-on storage.
 
+The upstream dockerproxy image runs as UID/GID `65532:65532`. Home Assistant supplies `/data` as an add-on runtime mount, so this repository builds a minimal wrapper image from `ghcr.io/dthompso99/dockerproxy:main` and switches the runtime user to UID/GID `0:0`. No dockerproxy source is vendored or rebuilt.
+
+The published dockerproxy image currently advertises `linux/amd64`, so this add-on is marked for `amd64`.
+
 ## Options
 
 ### `hosts`

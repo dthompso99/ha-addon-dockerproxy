@@ -1,18 +1,13 @@
 name: dockerproxy
-version: main
+version: 0.1.1
 slug: dockerproxy
 description: Lightweight multi-host Docker registry cache/proxy
 url: https://github.com/dthompso99/dockerproxy
 arch:
-  - aarch64
   - amd64
-  - armhf
-  - armv7
-  - i386
 startup: services
 boot: auto
 init: false
-image: ghcr.io/dthompso99/dockerproxy
 ports:
   8080/tcp: 8080
 ports_description:
