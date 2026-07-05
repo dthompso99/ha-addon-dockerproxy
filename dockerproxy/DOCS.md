@@ -16,8 +16,6 @@ The container image defaults to:
 
 Cache data is stored in `/data/cache`, which is persistent add-on storage.
 
-The upstream dockerproxy image runs as UID/GID `65532:65532`. Home Assistant supplies `/data` as an add-on runtime mount, so this repository builds a minimal wrapper image from `ghcr.io/dthompso99/dockerproxy:main` and switches the runtime user to UID/GID `0:0`. No dockerproxy source is vendored or rebuilt.
-
 The published dockerproxy image currently advertises `linux/amd64`, so this add-on is marked for `amd64`.
 
 ## Options
@@ -49,6 +47,12 @@ Cache time-to-live in seconds. The default is `31557600`, approximately one year
 ### `log_level`
 
 dockerproxy log level. The default is `1`.
+
+### `ssl`
+
+Controls the protocol used by Home Assistant's Open Web UI button. Set this to `true` if the add-on is exposed through HTTPS on the same host and port mapping Home Assistant knows about.
+
+Home Assistant add-on metadata does not support a configurable hostname override for the Open Web UI button. If you expose dockerproxy through a separate hostname, such as `https://docker.example.com/`, bookmark that URL or maintain a local fork that sets `webui` to that fixed external URL.
 
 ## Endpoints
 

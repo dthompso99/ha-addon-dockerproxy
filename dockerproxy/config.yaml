@@ -1,5 +1,5 @@
 name: dockerproxy
-version: 0.1.1
+version: main
 slug: dockerproxy
 description: Lightweight multi-host Docker registry cache/proxy
 url: https://github.com/dthompso99/dockerproxy
@@ -8,11 +8,12 @@ arch:
 startup: services
 boot: auto
 init: false
+image: ghcr.io/dthompso99/dockerproxy
 ports:
   8080/tcp: 8080
 ports_description:
   8080/tcp: dockerproxy HTTP API and web UI
-webui: http://[HOST]:[PORT:8080]/ui
+webui: "[PROTO:ssl]://[HOST]:[PORT:8080]/ui"
 watchdog: http://[HOST]:[PORT:8080]/health
 backup_exclude:
   - cache/*
@@ -22,6 +23,7 @@ options:
       url: https://registry-1.docker.io
   ttl: 31557600
   log_level: 1
+  ssl: false
 schema:
   hosts:
     - name: str
@@ -30,3 +32,4 @@ schema:
       token: password?
   ttl: int
   log_level: int
+  ssl: bool
