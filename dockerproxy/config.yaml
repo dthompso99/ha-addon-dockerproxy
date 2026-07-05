@@ -4,6 +4,7 @@ slug: dockerproxy
 description: Lightweight multi-host Docker registry cache/proxy
 url: https://github.com/dthompso99/dockerproxy
 arch:
+  - aarch64
   - amd64
 startup: services
 boot: auto

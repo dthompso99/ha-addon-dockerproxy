@@ -16,7 +16,7 @@ The container image defaults to:
 
 Cache data is stored in `/data/cache`, which is persistent add-on storage.
 
-The published dockerproxy image currently advertises `linux/amd64`, so this add-on is marked for `amd64`.
+The published dockerproxy image currently advertises `linux/amd64` and `linux/arm64`, so this add-on is marked for `amd64` and `aarch64`.
 
 ## Options
 
